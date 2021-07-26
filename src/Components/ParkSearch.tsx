@@ -1,7 +1,8 @@
 import { FormControl, InputLabel, MenuItem, Paper, Select } from "@material-ui/core";
 import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
-import StateIdentifiers from '../Data/StateIdentifiers.json';
+import StateIdentifiers from '../data/StateIdentifiers.json';
+import { getParksForStateIdentifier } from "../data/RestService";
 
 const useStyles = makeStyles({
     formSurface: {
@@ -18,8 +19,8 @@ export const ParkSearch = () => {
     const [age, setAge] = React.useState('');
     const classes = useStyles();
 
-    const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
-        setAge(event.target.value as string);
+    const handleChange = async (event: React.ChangeEvent<{ value: unknown }>) => {
+        await getParksForStateIdentifier(event.target.value as string);
     };
 
     return (

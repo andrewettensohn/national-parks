@@ -2,8 +2,8 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Box, Container } from '@material-ui/core';
-import { AppBarHeader } from './Components/AppBarHeader';
-import { ParkSearch } from './Components/ParkSearch';
+import { AppBarHeader } from './components/AppBarHeader';
+import { ParkSearch } from './components/ParkSearch';
 import {
   BrowserRouter as Router,
   Switch,
@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 
 export default function App() {
+  require('dotenv').config()
 
   return (
     <div className="App">
