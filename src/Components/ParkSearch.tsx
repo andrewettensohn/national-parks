@@ -3,6 +3,7 @@ import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import StateIdentifiers from '../data/StateIdentifiers.json';
 import { getParksForStateIdentifier } from "../data/RestService";
+import { Park } from "../interfaces/Models";
 
 const useStyles = makeStyles({
     formSurface: {
@@ -16,11 +17,11 @@ const useStyles = makeStyles({
 });
 
 export const ParkSearch = () => {
-    const [age, setAge] = React.useState('');
+    const [parks, setParks] = React.useState([] as Park[]);
     const classes = useStyles();
 
     const handleChange = async (event: React.ChangeEvent<{ value: unknown }>) => {
-        await getParksForStateIdentifier(event.target.value as string);
+        setParks(await getParksForStateIdentifier(event.target.value as string));
     };
 
     return (
@@ -30,13 +31,13 @@ export const ParkSearch = () => {
                 <Select
                     labelId="demo-simple-select-outlined-label"
                     id="demo-simple-select-outlined"
-                    value={age}
+                    value="AL"
                     onChange={handleChange}
                     label="State"
                 >
                     {StateIdentifiers.map(x => {
                         return (
-                            <MenuItem value={x.identifier}>
+                            <MenuItem key={x.identifier} value={x.identifier}>
                                 {x.name}
                             </MenuItem>
                         );
