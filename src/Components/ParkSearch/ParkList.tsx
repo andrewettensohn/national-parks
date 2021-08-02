@@ -1,7 +1,6 @@
 import { Grid } from "@material-ui/core";
-import React, { useEffect, useState } from "react";
-import { Park } from "../interfaces/Models";
-import { ParkInfoCard } from "./ParkInfoCard";
+import { Park } from "../../interfaces/IPark";
+import { ParkInfoCard } from "./ParkQuickInfoCard";
 
 export const ParkList = (props: { parks: Park[]; }) => {
 

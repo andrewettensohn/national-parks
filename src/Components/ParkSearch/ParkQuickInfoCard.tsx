@@ -1,6 +1,8 @@
 import { Button, Card, CardActions, CardContent, CardMedia, makeStyles, Paper, Typography } from "@material-ui/core";
 import React from "react";
-import { Park } from "../interfaces/Models";
+import { Link } from "react-router-dom";
+import { baseParkDetailsRoute } from "../../app/constants";
+import { Park } from "../../interfaces/IPark";
 
 const useStyles = makeStyles({
     root: {
@@ -41,11 +43,8 @@ export const ParkInfoCard = (props: { park: Park; }) => {
             </CardContent>
             <CardActions>
                 <Button size="small" color="primary">
-                    Share
-                            </Button>
-                <Button size="small" color="primary">
-                    Learn More
-                            </Button>
+                    <Link to={`${baseParkDetailsRoute}?id=${park.id}`}>Learn More</Link>
+                </Button>
             </CardActions>
         </Card>
     );

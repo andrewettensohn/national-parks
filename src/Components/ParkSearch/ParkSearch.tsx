@@ -1,9 +1,9 @@
 import { Button, FormControl, Grid, InputLabel, MenuItem, NativeSelect, Paper, Select, TextField, Typography } from "@material-ui/core";
 import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
-import StateIdentifiers from '../data/StateIdentifiers.json';
-import { getParks } from "../data/RestService";
-import { Park } from "../interfaces/Models";
+import StateIdentifiers from '../../data/StateIdentifiers.json';
+import { getParks } from "../../data/RestService";
+import { Park } from "../../interfaces/IPark";
 import { ParkList } from "./ParkList";
 
 const useStyles = makeStyles({
@@ -42,6 +42,7 @@ export const ParkSearch = () => {
     const onResetButtonClicked = () => {
         setSearchText("");
         setSelectedState("");
+        setParks([]);
     };
 
     return (

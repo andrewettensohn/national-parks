@@ -1,14 +1,14 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { Box, Container } from '@material-ui/core';
 import { AppBarHeader } from './components/AppBarHeader';
-import { ParkSearch } from './components/ParkSearch';
+import { ParkSearch } from './components/ParkSearch/ParkSearch';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from "react-router-dom";
+import { baseParkDetailsRoute } from './app/constants';
+import { ParkDetails } from './components/ParkDetails/ParkDetails';
 
 export default function App() {
   require('dotenv').config()
@@ -20,8 +20,11 @@ export default function App() {
         <Container maxWidth="sm">
           <Router>
             <Switch>
-              <Route path="/">
+              <Route exact path="/">
                 <ParkSearch />
+              </Route>
+              <Route path={baseParkDetailsRoute}>
+                <ParkDetails />
               </Route>
             </Switch>
           </Router>

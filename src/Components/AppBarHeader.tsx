@@ -8,6 +8,10 @@ const useStyles = makeStyles({
         maxHeight: 100,
         fontSize: 'calc(10px + 2vmin)'
     },
+    link: {
+        textDecoration: "none",
+        color: "#ffffff"
+    }
 });
 
 export const AppBarHeader = () => {
@@ -17,7 +21,7 @@ export const AppBarHeader = () => {
     return (
         <AppBar className={classes.bar}>
             <Toolbar>
-                <Typography variant="h6">My National Parks</Typography>
+                <Typography variant="h6"><a href="/" className={classes.link}>National Parks</a></Typography>
             </Toolbar>
         </AppBar>
     );
